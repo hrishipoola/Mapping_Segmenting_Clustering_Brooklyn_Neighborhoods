@@ -1,1 +1,14 @@
-# Mapping_Segmenting_Clustering_Brooklyn_Neighborhoods
+Mapping, Segmenting, and Clustering Brooklyn's Neighborhoods
+
+Imagine you're a retailer, restaurant, bar, or salon looking for the best spot for a new location in Brooklyn. Or, let's say you're simply someone looking to move to Brooklyn and want to know which neighborhoods (or groups of areas) you would like most. Mapping, segmenting, and clustering geospatial data could be a big help. Today, we'll work with geospatial data on New York City, focusing in on Brooklyn (where I used to live), to create interactive zoom & pop-up maps, explore Brooklyn venues with the Foursquare API, segment Brooklyn neighborhoods and their venues, and cluster Brooklyn venues using k-means clustering. Original source for geo json data can be found here: https://geo.nyu.edu/catalog/nyu_2451_34572. Let's break it down:
+
+Part 1: Open json from url, including using urllib.request.open and json.load
+Part 2: Transform json into dataframe, including pulling relevant data from json and constructing new dataframe
+Part 3: Visualize NYC with interactive map, including geocoding using geopy and folium to create an interactive zoom & pop-up map
+Part 4: Visualize Brooklyn with interactive map, including geocoding using geopy and folium to create an interactive zoom & pop-up map
+Part 5: Explore venues using Foursquare API, including making calls to the API for a single neighborhood (Crown Heights), defining functions for extracting categories, and creating dataframe of venues in a specified radius with their latitude and longitude coordinate and category
+Part 6: Segment Brooklyn neighborhoods, including creating function to get nearby venues calling Foursquare API, creating dataframe of venues in a specified radius with their latitude and longitude coordinate and category, grouping data by neighborhood, one hot encoding venue categories, obtain top 10 venue categories for each neighborhood and create dataframe
+Part 7: Clustering Brooklyn neighborhoods, including optimizing k for k-means clustering by plotting wcss vs k value, fitting k-means clustering model, creating dataframe with cluster labels, and creating interactive map of clusters using folium
+Part 8: Examine each cluster, including creating dataframe for each cluster and making observations
+
+Remember, k-means clustering depends a lot on the initialization of centroids. Since this is set by us and can differ each time, k-means clustering leads to a different result each time we run it (local optimum rather than a global optimum). Here we use the "k-means++" initialization and set the number of times the k-means algorithm will be run with different centroids (n_init) as 12. Scikit learn's "k-means++" initializes the centroids to be (generally) distant from each other, leading to provably better results than random initialization (e.g., random_state). Check out this paper for more information (http://ilpubs.stanford.edu:8090/778/1/2006-13.pdf). As always, it's great to dig into scikit learn's documentation, here it is for clustering: https://scikit-learn.org/stable/modules/clustering.html.
